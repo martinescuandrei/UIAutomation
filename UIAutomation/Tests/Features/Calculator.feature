@@ -3,13 +3,14 @@ Feature: Calculator Home Page
 @e2e
 Scenario Outline: Verify sum of two numbers "<number1>" and "<number2>"
 	Given the application is opened
+	When I navigate to "<calculatorType>"
 	When I add "<number1>" to "<number2>"
 	Then I verify the result is "<result>"
 Examples:
-	| number1 | number2 | result |
-	| 12      | 40      | 52     |
-	| 2       | 8       | 10     |
-	| 2       | 4       | 5      |
+	| number1 | number2 | result | calculatorType |
+	| 12      | 40      | 52     | Standard       |
+	| 2       | 8       | 10     | Standard       |
+	| 2       | 4       | 5      | Standard       |
 
 
 @e2e

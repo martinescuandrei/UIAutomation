@@ -37,7 +37,5 @@ namespace UIAutomation.Keywords.CommonMappings
             CalculatorType(calculatorType).Select(); ;
             return this;
         }
-
-
     }
 }

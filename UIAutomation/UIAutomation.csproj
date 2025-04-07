@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\SpecFlow.NUnit.3.9.74\build\SpecFlow.NUnit.props" Condition="Exists('..\packages\SpecFlow.NUnit.3.9.74\build\SpecFlow.NUnit.props')" />
-  <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.props')" />
+  <Import Project="..\packages\Reqnroll.SpecFlowCompatibility.2.4.0\build\Reqnroll.SpecFlowCompatibility.props" Condition="Exists('..\packages\Reqnroll.SpecFlowCompatibility.2.4.0\build\Reqnroll.SpecFlowCompatibility.props')" />
+  <Import Project="..\packages\Reqnroll.NUnit.2.4.0\build\Reqnroll.NUnit.props" Condition="Exists('..\packages\Reqnroll.NUnit.2.4.0\build\Reqnroll.NUnit.props')" />
+  <Import Project="..\packages\Reqnroll.Tools.MsBuild.Generation.2.4.0\build\Reqnroll.Tools.MsBuild.Generation.props" Condition="Exists('..\packages\Reqnroll.Tools.MsBuild.Generation.2.4.0\build\Reqnroll.Tools.MsBuild.Generation.props')" />
   <Import Project="..\packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\Microsoft.Testing.Extensions.Telemetry.1.5.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props" Condition="Exists('..\packages\Microsoft.Testing.Extensions.Telemetry.1.5.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props')" />
   <Import Project="..\packages\Microsoft.Testing.Platform.MSBuild.1.5.3\build\Microsoft.Testing.Platform.MSBuild.props" Condition="Exists('..\packages\Microsoft.Testing.Platform.MSBuild.1.5.3\build\Microsoft.Testing.Platform.MSBuild.props')" />
@@ -45,11 +46,20 @@
     <Reference Include="BoDi, Version=1.5.0.0, Culture=neutral, PublicKeyToken=ff7cd5ea2744b496, processorArchitecture=MSIL">
       <HintPath>..\packages\BoDi.1.5.0\lib\net45\BoDi.dll</HintPath>
     </Reference>
-    <Reference Include="Gherkin, Version=19.0.3.0, Culture=neutral, PublicKeyToken=86496cfa5b4a5851, processorArchitecture=MSIL">
-      <HintPath>..\packages\Gherkin.19.0.3\lib\net45\Gherkin.dll</HintPath>
+    <Reference Include="CucumberExpressions, Version=17.1.0.0, Culture=neutral, PublicKeyToken=86496cfa5b4a5851, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cucumber.CucumberExpressions.17.1.0\lib\netstandard2.0\CucumberExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="Gherkin, Version=30.0.0.0, Culture=neutral, PublicKeyToken=86496cfa5b4a5851, processorArchitecture=MSIL">
+      <HintPath>..\packages\Gherkin.30.0.0\lib\netstandard2.0\Gherkin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationInsights, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.22.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.8.0.2\lib\net462\Microsoft.Extensions.DependencyModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Testing.Extensions.MSBuild, Version=1.5.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Testing.Platform.MSBuild.1.5.3\lib\netstandard2.0\Microsoft.Testing.Extensions.MSBuild.dll</HintPath>
@@ -84,8 +94,14 @@
     <Reference Include="nunit.framework.legacy, Version=4.3.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.4.3.2\lib\net462\nunit.framework.legacy.dll</HintPath>
     </Reference>
-    <Reference Include="SpecFlow.Internal.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecFlow.Internal.Json.1.0.8\lib\net45\SpecFlow.Internal.Json.dll</HintPath>
+    <Reference Include="Reqnroll, Version=2.0.0.0, Culture=neutral, PublicKeyToken=611ce36403091019, processorArchitecture=MSIL">
+      <HintPath>..\packages\Reqnroll.2.4.0\lib\netstandard2.0\Reqnroll.dll</HintPath>
+    </Reference>
+    <Reference Include="Reqnroll.NUnit.ReqnrollPlugin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=611ce36403091019, processorArchitecture=MSIL">
+      <HintPath>..\packages\Reqnroll.NUnit.2.4.0\lib\netstandard2.0\Reqnroll.NUnit.ReqnrollPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Reqnroll.SpecFlowCompatibility.ReqnrollPlugin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=611ce36403091019, processorArchitecture=MSIL">
+      <HintPath>..\packages\Reqnroll.SpecFlowCompatibility.2.4.0\lib\net462\Reqnroll.SpecFlowCompatibility.ReqnrollPlugin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -115,6 +131,12 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.0\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.5\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -128,12 +150,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TechTalk.SpecFlow, Version=3.9.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecFlow.3.9.74\lib\net461\TechTalk.SpecFlow.dll</HintPath>
-    </Reference>
-    <Reference Include="TechTalk.SpecFlow.NUnit.SpecFlowPlugin, Version=3.9.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecFlow.NUnit.3.9.74\lib\net461\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll</HintPath>
-    </Reference>
     <Reference Include="TestApiCore, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.TestApi.0.6.0.0\lib\net40\TestApiCore.dll</HintPath>
     </Reference>
@@ -244,17 +260,20 @@
     <Error Condition="!Exists('..\packages\Microsoft.Testing.Extensions.Telemetry.1.5.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Testing.Extensions.Telemetry.1.5.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.targets'))" />
-    <Error Condition="!Exists('..\packages\SpecFlow.3.9.74\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.3.9.74\build\SpecFlow.targets'))" />
-    <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.props'))" />
-    <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.targets'))" />
-    <Error Condition="!Exists('..\packages\SpecFlow.NUnit.3.9.74\build\SpecFlow.NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.NUnit.3.9.74\build\SpecFlow.NUnit.props'))" />
-    <Error Condition="!Exists('..\packages\SpecFlow.NUnit.3.9.74\build\SpecFlow.NUnit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.NUnit.3.9.74\build\SpecFlow.NUnit.targets'))" />
+    <Error Condition="!Exists('..\packages\Reqnroll.2.4.0\build\Reqnroll.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Reqnroll.2.4.0\build\Reqnroll.targets'))" />
+    <Error Condition="!Exists('..\packages\Reqnroll.Tools.MsBuild.Generation.2.4.0\build\Reqnroll.Tools.MsBuild.Generation.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Reqnroll.Tools.MsBuild.Generation.2.4.0\build\Reqnroll.Tools.MsBuild.Generation.props'))" />
+    <Error Condition="!Exists('..\packages\Reqnroll.Tools.MsBuild.Generation.2.4.0\build\Reqnroll.Tools.MsBuild.Generation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Reqnroll.Tools.MsBuild.Generation.2.4.0\build\Reqnroll.Tools.MsBuild.Generation.targets'))" />
+    <Error Condition="!Exists('..\packages\Reqnroll.NUnit.2.4.0\build\Reqnroll.NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Reqnroll.NUnit.2.4.0\build\Reqnroll.NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\Reqnroll.NUnit.2.4.0\build\Reqnroll.NUnit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Reqnroll.NUnit.2.4.0\build\Reqnroll.NUnit.targets'))" />
+    <Error Condition="!Exists('..\packages\Reqnroll.SpecFlowCompatibility.2.4.0\build\Reqnroll.SpecFlowCompatibility.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Reqnroll.SpecFlowCompatibility.2.4.0\build\Reqnroll.SpecFlowCompatibility.props'))" />
+    <Error Condition="!Exists('..\packages\Reqnroll.SpecFlowCompatibility.2.4.0\build\Reqnroll.SpecFlowCompatibility.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Reqnroll.SpecFlowCompatibility.2.4.0\build\Reqnroll.SpecFlowCompatibility.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.CodeCoverage.17.13.0\build\netstandard2.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.13.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" />
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.13.0\build\net462\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.13.0\build\net462\Microsoft.NET.Test.Sdk.targets')" />
   <Import Project="..\packages\Microsoft.Testing.Platform.MSBuild.1.5.3\build\Microsoft.Testing.Platform.MSBuild.targets" Condition="Exists('..\packages\Microsoft.Testing.Platform.MSBuild.1.5.3\build\Microsoft.Testing.Platform.MSBuild.targets')" />
   <Import Project="..\packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.targets" Condition="Exists('..\packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.targets')" />
-  <Import Project="..\packages\SpecFlow.3.9.74\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.3.9.74\build\SpecFlow.targets')" />
-  <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.targets" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.targets')" />
-  <Import Project="..\packages\SpecFlow.NUnit.3.9.74\build\SpecFlow.NUnit.targets" Condition="Exists('..\packages\SpecFlow.NUnit.3.9.74\build\SpecFlow.NUnit.targets')" />
+  <Import Project="..\packages\Reqnroll.2.4.0\build\Reqnroll.targets" Condition="Exists('..\packages\Reqnroll.2.4.0\build\Reqnroll.targets')" />
+  <Import Project="..\packages\Reqnroll.Tools.MsBuild.Generation.2.4.0\build\Reqnroll.Tools.MsBuild.Generation.targets" Condition="Exists('..\packages\Reqnroll.Tools.MsBuild.Generation.2.4.0\build\Reqnroll.Tools.MsBuild.Generation.targets')" />
+  <Import Project="..\packages\Reqnroll.NUnit.2.4.0\build\Reqnroll.NUnit.targets" Condition="Exists('..\packages\Reqnroll.NUnit.2.4.0\build\Reqnroll.NUnit.targets')" />
+  <Import Project="..\packages\Reqnroll.SpecFlowCompatibility.2.4.0\build\Reqnroll.SpecFlowCompatibility.targets" Condition="Exists('..\packages\Reqnroll.SpecFlowCompatibility.2.4.0\build\Reqnroll.SpecFlowCompatibility.targets')" />
 </Project>

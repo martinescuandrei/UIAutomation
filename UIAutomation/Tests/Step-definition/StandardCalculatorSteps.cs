@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TechTalk.SpecFlow;
+using Reqnroll;
 using UIAutomation.Keywords;
 using UIAutomation.Src.UIA.Services;
 
@@ -13,14 +13,14 @@ namespace UIAutomation.Tests.Step_definition
     public class StandardCalculatorSteps
     {
         private readonly FeatureContext _featureContext;
-        private readonly GUITestingContext _context;
+        private readonly GUITestingContext _contextFeatureWindow;
         private readonly StandardWindowKeywords _standardWindowKeywords;
 
         public StandardCalculatorSteps(FeatureContext featureContext, GUITestingContext context)
         {
             _featureContext = featureContext;
-            _context = context;
-            _standardWindowKeywords = new StandardWindowKeywords(_context);
+            _contextFeatureWindow = featureContext["window"] as GUITestingContext;
+            _standardWindowKeywords = new StandardWindowKeywords(_contextFeatureWindow);
         }
 
         [When(@"I add ""([^""]*)"" to ""([^""]*)""")]

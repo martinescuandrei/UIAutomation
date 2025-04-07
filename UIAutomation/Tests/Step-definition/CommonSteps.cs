@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TechTalk.SpecFlow;
+using Reqnroll;
 using UIAutomation.Keywords.CommonMappings.Navigation;
 using UIAutomation.Src.DB;
 using UIAutomation.Src.UIA.Services;
@@ -19,7 +19,7 @@ namespace UIAutomation.Tests.Step_definition
     {
         private readonly FeatureContext _featureContext;
         private readonly ScenarioContext _scenarioContext;
-        private static GUITestingContext _context;
+        private static GUITestingContext _contextFeatureWindow;
         private readonly DBFactory dbFactory;
         private static DBContext _dbContext;
         private static NavigationWindowKeywords _navigationWindowKeywords;
@@ -28,25 +28,25 @@ namespace UIAutomation.Tests.Step_definition
         {
             this._featureContext = featureContext;
             this._scenarioContext = scenarioContext;
-            _context = context;
             _dbContext = dbContext;
             this.dbFactory = new DBFactory();
-            _navigationWindowKeywords = new NavigationWindowKeywords(_context);
+            _contextFeatureWindow = featureContext["window"] as GUITestingContext;
+            _navigationWindowKeywords = new NavigationWindowKeywords(_contextFeatureWindow);
         }
 
 
         [Given(@"the application is opened")]
         public void GivenApplicationIsLaunched()
         {
-            _context.ApplicationName = "Calculator";
-            this._scenarioContext.Add("applicationName", _context.ApplicationName);
+            _contextFeatureWindow.ApplicationName = "Calculator";
+            //this._scenarioContext.Add("applicationName", _context.ApplicationName);
             string pathToRoot = ConfigurationManager.AppSettings["E2EExecutableLocation"];
             string pathToSolution = Path.Combine(pathToRoot, $"calc.exe");
 
             GUITestingUtils.LaunchApplication(pathToSolution);
 
-            _context.window = UIRoot.Find(name: _context.ApplicationName);
-            this._scenarioContext.Add("window", _context.window);
+            _contextFeatureWindow.window = UIRoot.Find(name: _contextFeatureWindow.ApplicationName);
+           // this._scenarioContext.Add("window", _context.window);
         }
 
         [When(@"I navigate to ""([^""]*)""")]

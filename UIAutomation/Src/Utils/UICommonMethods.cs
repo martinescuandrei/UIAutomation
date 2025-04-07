@@ -3,7 +3,7 @@ using UIAutomation.Src.UIA.Services;
 using UIAutomation.Src.UIA.Utils;
 using System;
 using System.IO;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace UIAutomation.Src.Utils
 {

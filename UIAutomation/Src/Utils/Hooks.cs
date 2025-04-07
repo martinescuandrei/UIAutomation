@@ -3,7 +3,7 @@ using UIAutomation.Src.UIA.Services;
 using UIAutomation.Src.UIA.Utils;
 using System;
 using System.IO;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace UIAutomation.Src.Utils
 {
@@ -13,20 +13,26 @@ namespace UIAutomation.Src.Utils
 
         private readonly FeatureContext _featureContext;
         private readonly ScenarioContext _scenarioContext;
-        private static GUITestingContext _context;
+        private static GUITestingContext _contextFeatureWindow;
 
-        public Hooks( FeatureContext featureContext, GUITestingContext context, ScenarioContext scenarioContext )
+        public Hooks( FeatureContext featureContext, ScenarioContext scenarioContext )
         {
+            _contextFeatureWindow = featureContext["window"] as GUITestingContext;
             this._featureContext = featureContext;
             this._scenarioContext = scenarioContext;
-            _context = context;
-            _context.ApplicationName = this._scenarioContext.Get<string>( "applicationName" );
         }
 
-        [AfterScenario]
+        [AfterFeature]
         public static void CloseApp()
         {
-            GUITestingUtils.CloseApplication( $"{_context.ApplicationName}App");
+            var dd = _contextFeatureWindow;
+            GUITestingUtils.CloseApplication( $"{_contextFeatureWindow.ApplicationName}App");
+        }
+
+        [BeforeFeature]
+        public static void BeforeFeatureSetup(FeatureContext featureContext)
+        {
+            featureContext["window"] = new GUITestingContext();
         }
 
         [AfterStep]
@@ -40,7 +46,7 @@ namespace UIAutomation.Src.Utils
                 //var pathToRoot = ConfigurationManager.AppSettings["E2EExecutableLocation"];
 
                 string path = Path.GetDirectoryName( AppDomain.CurrentDomain.BaseDirectory );
-                string screenshotFile = _context.window?.TakeScreenshot( path );
+                string screenshotFile = _contextFeatureWindow.window?.TakeScreenshot( path );
                 TestContext.AddTestAttachment( screenshotFile, "My Screenshot" );
             }
         }
